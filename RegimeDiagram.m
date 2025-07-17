@@ -46,7 +46,7 @@ fig.Position(2)=0;
 
 xline(Height_so_that_eps2Pe_0p1)
 xline(Height_so_that_eps2Pe_10p0)
-xlabel('Channel height (m)', 'FontWeight', 'bold')
+xlabel('Channel height (m)', 'FontWeight', 'bold','FontName', 'Times')
 
 
 %% 
@@ -62,45 +62,50 @@ plot(channel_width,Sed_num_is_0p1,'-')
 
 plot(channel_width,Sed_num_is_10p0,'-')
 
-ylabel('Flow Velocity (m/s)','FontWeight', 'bold')
+ylabel('Flow Velocity (m/s)','FontWeight', 'bold','FontName', 'Times')
 
 plot(H,u, '-.') % CRZ
 plot(0.0508,0.4,'rx')
 
-text(5e-2, 1e-2, {'Advection', '& Diffusion', '& Sedimentation'})
+text(5e-2, 1e-2, {'Advection', '& Diffusion', '& Sedimentation'},'FontName', 'Times')
 
-text(5e-2, 3e0, {'Advection', '& Diffusion'})
+text(5e-2, 1e1, {'Advection', '& Diffusion'},'FontName', 'Times')
 
 
-text(5, 3e0, {'Advection'})
+text(5, 3e0, {'Advection'},'FontName', 'Times')
 
-text(5, 1e-4, {'Advection', '& Sedimentation'})
+text(5, 1e-4, {'Advection', '& Sedimentation'},'FontName', 'Times')
 
-text(3e-4, 1, {'Diffusion', '& Sedimentation'})
+text(0.5*1e-3, 1, {'Diffusion', '& Sedimentation'},'FontName', 'Times')
 
-text(8e-4, 40, {'Diffusion'})
+text(8e-4, 40, {'Diffusion'},'FontName', 'Times')
+
+text(0.5*1e-3, 1e-5, {'Sedimentation'},'FontName', 'Times')
+text(1e-1, 0.4*1e-5, {'Sedimentation'},'FontName', 'Times')
+text(4, 0.2*1e-5, {'Sedimentation'},'FontName', 'Times')
 
 annotation('textbox', [0.4, 0.9, 0.1, 0.1], ...
-    'String', '\epsilon^2 Pe=0.1', ...
+    'String', '\epsilon^2 Pe = 0.1', ...
     'EdgeColor', 'none', ...
-    'HorizontalAlignment', 'center','FontSize',12);
+    'HorizontalAlignment', 'center','FontSize',12,'FontName', 'Times');
 
 annotation('textbox', [0.65, 0.9, 0.1, 0.1], ...
-    'String', '\epsilon^2 Pe=10.0', ...
+    'String', '\epsilon^2 Pe = 10.0', ...
     'EdgeColor', 'none', ...
-    'HorizontalAlignment', 'center','FontSize',12);
+    'HorizontalAlignment', 'center','FontSize',12,'FontName', 'Times');
 
 
 annotation('textbox', [0.9, 0.25, 0.1, 0.1], ...
-    'String', ' S=0.1', ...
+    'String', ' S = 0.1', ...
     'EdgeColor', 'none', ...
-    'HorizontalAlignment', 'center','FontSize',12);
+    'HorizontalAlignment', 'center','FontSize',12,'FontName', 'Times');
 
 annotation('textbox', [0.9, 0.05, 0.1, 0.1], ...
-    'String', 'S=10.0', ...
+    'String', 'S = 10.0', ...
     'EdgeColor', 'none', ...
-    'HorizontalAlignment', 'center','FontSize',12);
+    'HorizontalAlignment', 'center','FontSize',12,'FontName', 'Times');
 
 
 box on
-exportgraphics(gcf, 'myplot.jpg', 'BackgroundColor', 'none', 'Resolution', 600)
+set(gca, 'FontName', 'Times') 
+exportgraphics(gcf, 'regime_map.eps', 'BackgroundColor', 'none', 'Resolution', 600)
