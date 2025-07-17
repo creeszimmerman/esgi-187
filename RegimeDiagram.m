@@ -76,11 +76,11 @@ text(5, 3e0, {'Advection'},'FontName', 'Times')
 
 text(5, 1e-4, {'Advection', '& Sedimentation'},'FontName', 'Times')
 
-text(0.5*1e-3, 1, {'Diffusion', '& Sedimentation'},'FontName', 'Times')
+text(0.15*1e-2, 0.5, {'Diffusion', '& Sedimentation'},'FontName', 'Times')
 
-text(8e-4, 40, {'Diffusion'},'FontName', 'Times')
+text(0.15*1e-2, 40, {'Diffusion'},'FontName', 'Times')
 
-text(0.5*1e-3, 1e-5, {'Sedimentation'},'FontName', 'Times')
+text(0.15*1e-2, 1e-5, {'Sedimentation'},'FontName', 'Times')
 text(1e-1, 0.4*1e-5, {'Sedimentation'},'FontName', 'Times')
 text(4, 0.2*1e-5, {'Sedimentation'},'FontName', 'Times')
 
@@ -107,5 +107,14 @@ annotation('textbox', [0.9, 0.05, 0.1, 0.1], ...
 
 
 box on
+x_box = [0.025 0.1 0.1 0.025];
+y_box = [0.1 0.1 1.2 1.2];
+
+fill(x_box, y_box, [0.7 0.7 0.7], 'EdgeColor', 'none', ...
+     'FaceAlpha', 0.3)  % RGB for grey
+
+
+xlim([10^-3 10^2])
+ylim([10^-6 10^2])
 set(gca, 'FontName', 'Times') 
-exportgraphics(gcf, 'regime_map.eps', 'BackgroundColor', 'none', 'Resolution', 600)
+exportgraphics(gcf, 'regime_map.jpg', 'BackgroundColor', 'none', 'Resolution', 600)
